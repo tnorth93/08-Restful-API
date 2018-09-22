@@ -1,17 +1,20 @@
 'use strict';
 
 const url = require('url');
-const querystring = require('querystring');
+const queryString = require('querystring');
 const logger = require('./logger');
 
 const requestParser = module.exports = {};
 
-// @param request
-// @returns {Promise<any>}
-
+/**
+* @param request
+* @returns {Promise<any>}
+*/
 requestParser.parseAsync = (request) => {
   return new Promise((resolve, reject) => {
     logger.log(logger.INFO, `Original URL: ${request.url}`);
+    request.url = url.parse(request.url);
+    request.url.query = queryString.parse(request.url.query);
     if (request.method !== 'POST' && request.method !== 'PUT') {
       return resolve(request);
     }

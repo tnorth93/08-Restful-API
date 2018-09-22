@@ -1,6 +1,6 @@
 'use strict';
 
-const logger = require('logger');
+const logger = require('./logger');
 const requestParser = require('./request-parser');
 
 const routeHandlers = {
@@ -21,14 +21,14 @@ router.get = (route, callback) => {
   logRouteAndCb('GET', route);
 };
 
-router.post = (route, callback) => {
-  routeHandlers.POST[route] = callback;
-  logRouteAndCb('POST', route);
-};
-
 router.put = (route, callback) => {
   routeHandlers.PUT[route] = callback;
   logRouteAndCb('PUT', route);
+};
+
+router.post = (route, callback) => {
+  routeHandlers.POST[route] = callback;
+  logRouteAndCb('POST', route);
 };
 
 router.delete = (route, callback) => {
@@ -42,8 +42,6 @@ router.liamFindsRoutesAndExecutesThem = (request, response) => {
     .then((parsedRequest) => {
       const handler = routeHandlers[parsedRequest.method][parsedRequest.url.pathname];
       logger.log(logger.INFO, 'Found the following handler');
-      logger.log(logger.INFO, handler.toString());
-
       if (handler) {
         return handler(parsedRequest, response);
       }
@@ -56,9 +54,5 @@ router.liamFindsRoutesAndExecutesThem = (request, response) => {
       response.write('Bad Request');
       response.end();
       return undefined;
-  });
+    });
 };
-
-
-
-

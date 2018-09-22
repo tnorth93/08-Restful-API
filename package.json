@@ -1,36 +1,29 @@
 {
-  "name": "07-http-server",
+  "name": "commonjs-modules",
   "version": "1.0.0",
-  "description": "creating our scratch version of express",
-  "main": "index.js",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
     "test": "eslint . && jest --coverage",
     "lint": "eslint ."
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tnorth93/07-http-server"
-  },
-  "author": "Tom North",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tnorth93/07-http-server"
-  },
-  "homepage": "https://github.com/tnorth93/07-http-server#readme",
-  "dependencies": {
-    "cowsay": "^1.3.1",
+  "devDependencies": {
     "eslint": "^5.5.0",
-    "eslint-plugin-dependencies": "^2.4.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^21.22.0",
-    "http": "0.0.0",
     "jest": "^23.6.0",
+    "superagent": "^4.0.0-beta.5"
+  },
+  "dependencies": {
     "logger": "0.0.1",
     "uuid": "^3.3.2",
     "winston": "^3.1.0"
-  },
-  "devDependencies": {
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "superagent": "^4.0.0-beta.5"
   }
 }
