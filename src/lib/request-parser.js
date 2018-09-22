@@ -6,8 +6,8 @@ const logger = require('./logger');
 
 const requestParser = module.exports = {};
 
-@param request
-@returns {Promise<any>}
+// @param request
+// @returns {Promise<any>}
 
 requestParser.parseAsync = (request) => {
   return new Promise((resolve, reject) => {
