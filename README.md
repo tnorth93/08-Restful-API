@@ -7,6 +7,10 @@ These instructions will get you a copy of the project up and running on your loc
 Clone this repo and navigate to a directory on your local machine. Once you have the folder setup where you want to install, use
 the command ```git clone <repo link>```. 
 
+###Using the request methods
+From the root of the repository in your terminal, use the command ```node src/app.js``` to begin the server. Open another terminal and
+use the command ```http GET :3000/api/huskies``` to retrieve all of the data in huskyStorage. 
+
 ##Prerequisites
 To install, you'll need a computer with access to the internet, your favorite text editor, your computer's terminal,
 and npm installed. Once you have all of those things, use the command ```npm install``` to install all of the dependencies 

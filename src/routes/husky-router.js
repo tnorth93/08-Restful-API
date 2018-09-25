@@ -13,8 +13,6 @@ const sendStatus = (statusCode, message, response) => {
 };
 
 const sendJSON = (statusCode, data, response) => {
-  // logger.log(logger.INFO, `Responding with a ${statusCode} status and data`);
-  // logger.log(logger.INFO, JSON.stringify(data));
   response.writeHead(statusCode, { 'Content-Type': 'application/json' });
   response.write(JSON.stringify(data));
   response.end();
