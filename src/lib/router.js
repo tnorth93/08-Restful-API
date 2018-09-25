@@ -49,7 +49,7 @@ router.liamFindsRoutesAndExecutesThem = (request, response) => {
       response.end();
       return undefined;
     }).catch(() => {
-      logger.log(logger.INFO, 'Responding with 400');
+      logger.log(logger.INFO, 'Responding with 400 because of an exception');
       response.writeHead(400, { 'Content-Type': 'text/plain' });
       response.write('Bad Request');
       response.end();

@@ -31,4 +31,36 @@ describe('/api/huskies', () => {
         expect(response.status).toEqual(400);
       });
   });
+  test('should respond with a json response of all of the huskies in husky storage', () => {
+    return superagent.get('http://localhost:3000/api/huskies')
+      .then((response) => {
+        expect(response.status).toEqual(200);
+        expect(response.body).toBeTruthy();
+      });
+  });
+  test('should respond with a json response of a specific husky', () => {
+    return superagent.get('http://localhost:3000/api/huskies')
+      .then((response) => {
+        expect(response.status).toEqual(200);
+        expect(response.body).toBeTruthy();
+      });
+  });
+  test('should respond with a 404 if the id of a specific husky cannot be found', () => {
+    return superagent.get('http://localhost:3000/api/huskies/342432732')
+      .then(Promise.reject)
+      .catch((response) => {
+        expect(response.status).toEqual(404);
+      });
+  });
+  test('respond with 404 if invalid path', () => {
+    return superagent.get('http://localhost:3000/apd/huskers')
+      .set('Content-Type', 'application/json')
+      .send({
+        content: 'is a good boy',
+      })
+      .then(Promise.reject)
+      .catch((response) => {
+        expect(response.status).toEqual(404);
+      });
+  });
 });
